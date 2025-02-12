@@ -61,11 +61,20 @@ class Program:
     def is_constant_(self):
         return self.is_leaf_() and self.index is None
 
-    def complexity(self):
+    def size_(self):
         if self.is_leaf_():
             return 1
-        else:
-            return 1 + self.left.complexity() + self.right.complexity()
+        left_size = self.left.size_() if self.left else 0
+        right_size = self.right.size_() if self.right else 0
+        return 1 + left_size + right_size
+
+    def complexity(self):
+        total = self.size_()
+        if self.left:
+            total += self.left.complexity()
+        if self.right:
+            total += self.right.complexity()
+        return total
 
     def __repr__(self):
         if self.is_leaf_() and self.is_observation_():
