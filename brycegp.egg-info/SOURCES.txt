@@ -1,0 +1,5 @@
+setup.py
+brycegp.egg-info/PKG-INFO
+brycegp.egg-info/SOURCES.txt
+brycegp.egg-info/dependency_links.txt
+brycegp.egg-info/top_level.txt
